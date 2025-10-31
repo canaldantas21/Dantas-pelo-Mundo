@@ -1,0 +1,92 @@
+
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dantas pelo mundo — Vídeos</title>
+  <meta name="description" content="Mensagens e reflexões em vídeo do canal Dantas pelo Mundo" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <div class="app">
+
+    <header class="topbar">
+  <div class="brand">
+    <img src="logo.png" alt="Logotipo Dantas pelo Mundo" class="logo-img">
+    <div>
+      <h1>Dantas pelo mundo</h1>
+      <p class="tag">Mensagens e reflexões em vídeo</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html" class="btn ghost">← Voltar</a>
+  </nav>
+</header>
+
+
+    <main>
+      <section class="videos-section">
+        <h2>Vídeos & Shorts</h2>
+        <p class="video-subtitle">Mensagens e reflexões recentes do nosso canal.</p>
+
+        <div id="video-container" class="video-grid">
+          <p>A carregar vídeos...</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Dantas pelo mundo</p>
+    </footer>
+  </div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  fetch('./feed.php')
+    .then(response => {
+      if (!response.ok) throw new Error('Erro ao carregar o feed');
+      return response.json();
+    })
+    .then(data => {
+      const container = document.getElementById('video-container');
+      container.innerHTML = '';
+
+      if (!data.entry) {
+        container.innerHTML = '<p>Nenhum vídeo encontrado.</p>';
+        return;
+      }
+
+      const videos = data.entry.slice(0, 6);
+      videos.forEach(video => {
+        const videoId = video.id.replace('yt:video:', '');
+        const title = video.title;
+        const url = video.link['@attributes'].href;
+
+        const card = document.createElement('div');
+        card.className = 'video-card fade-in';
+        card.innerHTML = `
+          <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+          <h4>${title}</h4>
+          <a href="${url}" target="_blank" class="small-link">Abrir no YouTube →</a>
+        `;
+        container.appendChild(card);
+      });
+    })
+    .catch(error => {
+      console.error(error);
+      document.getElementById('video-container').innerHTML = `
+        <p>Não foi possível carregar os vídeos. Verifique a ligação ou o ficheiro feed.php.</p>
+      `;
+    });
+</script>
+
+
+  
+
+
+  
+</body>
+</html>
