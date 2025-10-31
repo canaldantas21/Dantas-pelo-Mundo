@@ -1,0 +1,29 @@
+
+:root {
+  --accent: #4a6fa5; /* Azul suave */
+  --accent-2: #b07833; /* Areia */
+}
+
+h1, h2, h3 {
+  color: #0b2136;
+}
+
+a {
+  transition: all .18s ease;
+}
+
+a:hover {
+  transform: translateY(-2px);
+}
+
+.logo-placeholder {
+  box-shadow: 0 6px 18px rgba(74, 111, 165, 0.18);
+}
+
+.btn.primary {
+  box-shadow: 0 8px 20px rgba(42, 100, 170, 0.14);
+}
+
+@media (min-width:900px) and (max-width:1200px) {
+  .app { padding: 28px; }
+}

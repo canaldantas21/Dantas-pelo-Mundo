@@ -1,0 +1,145 @@
+
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dantas pelo mundo</title>
+  <meta name="description" content="Dantas pelo mundo — Bíblia, Fé, Reflexão, Música e Histórias de Viagem" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo-placeholder" aria-hidden="true">DP</div>
+        <div>
+          <h1>Dantas pelo mundo</h1>
+          <p class="tag">Bíblia • Fé • Música • Viagens</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-toggle" aria-label="Abrir menu">☰</button>
+        <ul class="nav-list">
+          <li><a href="#biblia">Bíblia</a></li>
+          <li><a href="#musica">Músicas</a></li>
+          <li><a href="#videos">Vídeos</a></li>
+          <li><a href="#lugares">Lugares</a></li>
+          <li><a href="#grupo">Grupo</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h2>Reflexão, História e Louvor — em cada passo</h2>
+          <p>Exploramos lugares, partilhamos a Palavra e celebramos com música. Acompanhe as leituras, músicas e mensagens — tudo num só lugar.</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#biblia">Ler a Bíblia</a>
+            <a class="btn ghost" href="#videos">Ver Mensagens</a>
+          </div>
+        </div>
+        <div class="hero-media" aria-hidden="true">
+          <div class="card-screenshot">Imagem / vídeo</div>
+        </div>
+      </section>
+
+      <section id="features" class="features">
+        <article class="feature" id="biblia">
+          <h3>Bíblia completa</h3>
+          <p>Acesso a textos, planos de leitura e reflexões. Pesquisa rápida e marcadores (a configurar).</p>
+          <a class="small-link" href="#">Explorar a Bíblia →</a>
+        </article>
+
+        <article class="feature" id="musica">
+          <h3>Músicas</h3>
+          <p>Lista de hinos, partituras simples, e playlists para cada viagem ou culto.</p>
+          <a class="small-link" href="#">Ouvir músicas →</a>
+        </article>
+
+        <article class="feature" id="videos">
+          <h3>Vídeos & Shorts</h3>
+          <p>Mensagens gravadas e highlight shorts ligados ao canal do YouTube.</p>
+          <a class="small-link" href="#">Ver vídeos →</a>
+        </article>
+
+        <article class="feature" id="lugares">
+          <h3>Lugares</h3>
+          <p>Histórias e reflexões sobre cada lugar visitado — cultural, arqueológico e espiritual.</p>
+          <a class="small-link" href="#">Explorar lugares →</a>
+        </article>
+      </section>
+
+      <section class="cards">
+        <h2>Em destaque</h2>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-header">Plano de leitura</div>
+            <div class="card-body">Comece hoje um plano de 30 dias — trecho diário e reflexão.</div>
+            <div class="card-footer"><a href="#">Abrir</a></div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">Último encontro</div>
+            <div class="card-body">Resumo e vídeo do último louvor em Lisboa.</div>
+            <div class="card-footer"><a href="#">Ver vídeo</a></div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">Mapa de viagens</div>
+            <div class="card-body">Registos dos locais visitados e histórias por região.</div>
+            <div class="card-footer"><a href="#">Abrir mapa</a></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="newsletter">
+        <div>
+          <h3>Receba novidades</h3>
+          <p>Inscreva-se para receber mensagens, datas de encontros e lançamentos musicais (ficheiro local no seu computador).</p>
+        </div>
+        <form class="subscribe" onsubmit="event.preventDefault(); alert('Funcionalidade futura — guardar em ficheiro local');">
+          <input type="email" placeholder="O seu e-mail" required />
+          <button class="btn primary" type="submit">Subscrever</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <strong>Dantas pelo mundo</strong>
+          <p>Projeto pessoal — vídeos ligados ao seu canal YouTube. Imagens e logos: seus ficheiros locais.</p>
+        </div>
+        <div>
+          <h4>Links</h4>
+          <ul>
+            <li><a href="#biblia">Bíblia</a></li>
+            <li><a href="#musica">Músicas</a></li>
+            <li><a href="#videos">Vídeos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <address>Seu nome — seu e-mail</address>
+        </div>
+      </div>
+      <div class="credits">© <span id="year"></span> Dantas pelo mundo</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelector('.nav-toggle').addEventListener('click', function(){
+      document.querySelector('.nav-list').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
+
