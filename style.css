@@ -1,0 +1,342 @@
+/* ----- Estilo base (Mobile First) ----- */
+/* ----- Fundo e animação ultra suave ----- */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: linear-gradient(180deg, #fffdfb, #faf7f3);
+  color: #2f2f2f;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  animation: bgFlow 60s ease-in-out infinite alternate;
+  transition: background 5s ease-in-out;
+}
+
+/* ----- Nova animação com transição imperceptível ----- */
+@keyframes bgFlow {
+  0% {
+    background: linear-gradient(180deg, #ffffff, #fdf8f2);
+  }
+  25% {
+    background: linear-gradient(180deg, #fffaf6, #f8f3ec);
+  }
+  50% {
+    background: linear-gradient(180deg, #fefcf9, #f9f4ee);
+  }
+  75% {
+    background: linear-gradient(180deg, #ffffff, #f7f1eb);
+  }
+  100% {
+    background: linear-gradient(180deg, #fffefb, #faf6f2);
+  }
+}
+
+
+
+/* ----- Cabeçalho ----- */
+header {
+  text-align: center;
+  padding: 15px 0 5px;
+  position: relative;
+}
+
+header img.logo {
+  width: 110px;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+}
+
+header h1 {
+  color: #4a3b2a;
+  font-size: 1.3em;
+  font-weight: 600;
+  margin: 5px 0 10px;
+}
+
+/* ----- Efeito de brilho (aura) no logotipo ----- */
+header {
+  text-align: center;
+  padding: 15px 0 5px;
+  position: relative;
+}
+
+header img.logo {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+  position: relative;
+  z-index: 2;
+  animation: fadeInLogo 2.5s ease forwards;
+}
+
+/* Halo suave atrás do logotipo */
+header::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180px;
+  height: 180px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.1) 70%, transparent 100%);
+  filter: blur(25px);
+  animation: pulseLight 10s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+/* ----- Fade-in no logotipo e no título ----- */
+@keyframes fadeInLogo {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+header h1 {
+  color: #4a3b2a;
+  font-size: 1.3em;
+  font-weight: 600;
+  margin: 5px 0 10px;
+  opacity: 0;
+  animation: fadeInText 3s ease 0.5s forwards;
+}
+
+/* Fade-in do texto com ligeiro atraso */
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ----- Pulso de luz suave (halo) ----- */
+@keyframes pulseLight {
+  0% {
+    opacity: 0.35;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  100% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+
+/* ----- Conteúdo principal ----- */
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 25px;
+}
+
+.intro h2, .content h2 {
+  color: #8a6238;
+  margin-bottom: 10px;
+}
+
+.intro p, .content p {
+  color: #4a3b2a;
+  line-height: 1.5em;
+}
+
+/* ----- Menu inferior ----- */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-top: 1px solid #d9c6af;
+  padding: 10px 0;
+  backdrop-filter: blur(8px);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.bottom-nav a {
+  text-decoration: none;
+  color: #6b4c2d;
+  font-size: 0.8em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.bottom-nav a i {
+  font-size: 1.3em;
+  margin-bottom: 3px;
+}
+
+.bottom-nav a.active,
+.bottom-nav a:hover {
+  color: #a05b2a;
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+  header img.logo {
+    width: 140px;
+  }
+
+  header h1 {
+    font-size: 1.6em;
+  }
+
+  .intro h2 {
+    font-size: 1.8em;
+  }
+
+  .intro p {
+    font-size: 1.1em;
+  }
+}
+
+/* Desktops */
+@media (min-width: 1024px) {
+  body {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  }
+
+  header img.logo {
+    width: 160px;
+  }
+
+  main {
+    padding: 60px;
+  }
+
+  .bottom-nav {
+    position: static;
+    justify-content: center;
+    gap: 40px;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .bottom-nav a {
+    font-size: 1em;
+  }
+}
+
+/* ----- Modo escuro automático ----- */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(180deg, #1c1b19, #2b2927);
+    color: #e6e2dd;
+    animation: bgFlowDark 60s ease-in-out infinite alternate;
+  }
+
+  @keyframes bgFlowDark {
+    0% {
+      background: linear-gradient(180deg, #1c1b19, #2b2927);
+    }
+    25% {
+      background: linear-gradient(180deg, #23211f, #312f2d);
+    }
+    50% {
+      background: linear-gradient(180deg, #1e1d1b, #2c2a28);
+    }
+    75% {
+      background: linear-gradient(180deg, #1b1a18, #2a2826);
+    }
+    100% {
+      background: linear-gradient(180deg, #20201e, #302e2c);
+    }
+  }
+
+  header h1 {
+    color: #f2e8d8;
+  }
+
+  .bottom-nav {
+    background-color: rgba(35, 34, 33, 0.8);
+    border-top: 1px solid #3b3836;
+  }
+
+  .bottom-nav a {
+    color: #d3c2ad;
+  }
+
+  .bottom-nav a.active,
+  .bottom-nav a:hover {
+    color: #f3c997;
+  }
+
+  header::before {
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.05) 70%, transparent 100%);
+    filter: blur(40px);
+  }
+}
+
+
+/* Transição suave entre páginas */
+body {
+  opacity: 0;
+  animation: fadeInPage 1s ease forwards;
+}
+
+@keyframes fadeInPage {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+a {
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+
+#splash-screen {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #ffffff, #f5f1eb);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeOutSplash 2s ease 5s forwards;
+}
+
+.splash-logo {
+  width: 120px;
+  margin-bottom: 15px;
+  opacity: 0;
+  animation: splashFadeIn 2s ease forwards;
+}
+
+.splash-title, .splash-text {
+  opacity: 0;
+  animation: splashFadeIn 2s ease 0.5s forwards;
+}
+
+@keyframes splashFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOutSplash {
+  from { opacity: 1; visibility: visible; }
+  to { opacity: 0; visibility: hidden; display: none; }
+}

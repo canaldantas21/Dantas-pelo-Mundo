@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dantas pelo Mundo</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2e0e9b6c3.js" crossorigin="anonymous"></script>
+  <!-- Manifest PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#d8c6a2">
+
+</head>
+<body>
+
+
+<!-- Splash Screen -->
+<div id="splash-screen">
+  <img src="logo.png" alt="Logotipo Dantas pelo Mundo" class="splash-logo">
+  <h1 class="splash-title">Dantas pelo Mundo</h1>
+  <p class="splash-text">Explora o mundo com alma</p>
+</div>
+
+
+<header>
+  <img src="logo.png" alt="Logotipo Dantas pelo Mundo" class="logo">
+  <h1>Dantas pelo Mundo</h1>
+</header>
+
+
+
+  <main>
+    <section class="intro">
+      <h2>Bem-vindo!</h2>
+      <p>Um espaço de fé, reflexão, viagens e música. Explora o mundo com alma.</p>
+    </section>
+  </main>
+
+ 
+
+<nav class="bottom-nav">
+  <a href="index.html" class="active">
+    <i class="fas fa-home"></i>
+    <span>Início</span>
+  </a>
+  <a href="biblia.html">
+    <i class="fas fa-book-bible"></i>
+    <span>Bíblia</span>
+  </a>
+  <a href="viagens.html">
+    <i class="fas fa-globe-europe"></i>
+    <span>Viagens</span>
+  </a>
+  <a href="musica.html">
+    <i class="fas fa-music"></i>
+    <span>Música</span>
+  </a>
+  <a href="canal.html">
+    <i class="fas fa-user"></i>
+    <span>canal</span>
+  </a>
+</nav>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const splash = document.getElementById('splash-screen');
+  if (!splash) return;
+
+  // Verifica se já mostrou o splash
+  const hasVisited = localStorage.getItem('visitedDantas');
+
+  if (hasVisited) {
+    // Já visitou → esconder imediatamente
+    splash.style.display = 'none';
+  } else {
+    // Primeira visita → mostra e grava que já entrou
+    localStorage.setItem('visitedDantas', 'true');
+    setTimeout(() => {
+      splash.style.display = 'none';
+    }, 7000); // 7 segundos
+  }
+});
+</script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(() => console.log('✅ Service Worker registado com sucesso.'))
+      .catch(err => console.error('❌ Erro ao registar Service Worker:', err));
+  }
+</script>
+
+
+
+
+</body>
+</html>

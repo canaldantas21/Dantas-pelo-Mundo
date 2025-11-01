@@ -1,0 +1,22 @@
+{
+  "name": "Dantas pelo Mundo",
+  "short_name": "Dantas",
+  "description": "Reflexões sobre fé, viagens e música — Dantas pelo Mundo.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#d8c6a2",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
